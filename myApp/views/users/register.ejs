@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/css/bootstrap.min.css' />
+    <script src="/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <form acion='/registro' method="POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Nombre</label>
+          <input type="text" name="firstName" class="form-control" id="exampleInputEmail1">
+          <span><%= locals.errors && errors.firstName ? errors.firstName.msg : ''%></span>
+        </div>
+        <div class="mb-3">
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Apellido</label>
+          <input type="text" name="lastName"  class="form-control" id="exampleInputPassword1">
+          <span><%= locals.errors && errors.lastName ? errors.lastName.msg : ''%></span>
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">DNI</label>
+            <input type="number" name="dni" class="form-control" id="exampleInputPassword1">
+            <span><%= locals.errors && errors.dni ? errors.dni.msg : ''%></span>
+
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Telefono</label>
+            <input type="text" name="phone" class="form-control" id="exampleInputPassword1">
+            <span><%= locals.errors && errors.phone ? errors.phone.msg : ''%></span>
+
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Email</label>
+            <input type="mail" name="email"  class="form-control" id="exampleInputPassword1" aria-describedby="emailHelp">
+            <span><%= locals.errors && errors.email ? errors.email.msg : ''%></span>
+
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+            <input type="text" name="password" class="form-control" id="exampleInputPassword1">
+            <span><%= locals.errors && errors.password ? errors.password.msg : ''%></span>
+
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Confirmar contraseña</label>
+            <input type="text" name="rePassword" class="form-control" id="exampleInputPassword1">
+            <span><%= locals.errors && errors.rePassword ? errors.rePassword.msg : ''%></span>
+
+          </div>
+        <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+  </body>
+</html>
