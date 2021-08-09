@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/indexRouter');
 var usersRouter = require('./routes/usersRouter');
+const passport = require('passport');
+const session = require('express-session')
 
 var app = express();
 
@@ -16,7 +18,21 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+
+app.use(cookieParser('el secreto de la clinica'));
+
+app.use(session({
+  secret: 'el secreto de la clinica',
+  resave: true,
+  saveUnitialized: true
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);

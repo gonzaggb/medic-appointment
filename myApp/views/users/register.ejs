@@ -16,14 +16,32 @@
           <label for="exampleInputPassword1" class="form-label">Apellido</label>
           <input type="text" name="lastName"  class="form-control" id="exampleInputPassword1">
           <span><%= locals.errors && errors.lastName ? errors.lastName.msg : ''%></span>
-
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">DNI</label>
-            <input type="number" name="dni" class="form-control" id="exampleInputPassword1">
-            <span><%= locals.errors && errors.dni ? errors.dni.msg : ''%></span>
-
-          </div>
+          <label for="exampleInputPassword1" class="form-label">DNI</label>
+          <input type="number" name="dni" class="form-control" id="exampleInputPassword1">
+          <span><%= locals.errors && errors.dni ? errors.dni.msg : ''%></span>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Fecha de nacimiento</label>
+          <input type="date" name="birthDate"  class="form-control" id="exampleInputPassword1">
+          <span><%= locals.errors && errors.birthDate ? errors.birthDate.msg : ''%></span>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Direccion</label>
+          <input type="text" name="adress"  class="form-control" id="exampleInputPassword1">
+          <span><%= locals.errors && errors.adress ? errors.adress.msg : ''%></span>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Localidad</label>
+          <input type="text" name="state"  class="form-control" id="exampleInputPassword1">
+          <span><%= locals.errors && errors.state ? errors.state.msg : ''%></span>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Código postal</label>
+          <input type="number" name="zipCode"  class="form-control" id="exampleInputPassword1">
+          <span><%= locals.errors && errors.zipCode ? errors.zipCode.msg : ''%></span>
+        </div> 
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Telefono</label>
             <input type="text" name="phone" class="form-control" id="exampleInputPassword1">
@@ -37,6 +55,12 @@
 
           </div>
           <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Red Social</label>
+            <input type="text" name="socialNetwork"  class="form-control" id="exampleInputPassword1" aria-describedby="emailHelp">
+            <span><%= locals.errors && errors.socialNetwork ? errors.socialNetwork.msg : ''%></span>
+
+          </div>
+          <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Contraseña</label>
             <input type="text" name="password" class="form-control" id="exampleInputPassword1">
             <span><%= locals.errors && errors.password ? errors.password.msg : ''%></span>
@@ -46,9 +70,13 @@
             <label for="exampleInputPassword1" class="form-label">Confirmar contraseña</label>
             <input type="text" name="rePassword" class="form-control" id="exampleInputPassword1">
             <span><%= locals.errors && errors.rePassword ? errors.rePassword.msg : ''%></span>
-
           </div>
-        <div class="mb-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="2" name="patient" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              Paciente
+            </label>
+          </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
   </body>

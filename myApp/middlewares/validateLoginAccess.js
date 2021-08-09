@@ -1,6 +1,9 @@
 const { body } = require('express-validator')
 const { exist } = require('../helpers/utilities')
 const bcrypt = require('bcryptjs')
+const PassportLocal = require('passport-local').Strategy
+
+
 
 
 const validations = [
@@ -9,7 +12,13 @@ const validations = [
             const dni = req.body.dni
             user = await exist('dni', dni)
             const matchPass = bcrypt.compareSync(req.body.password, user.password)
-
+           
+            passport.user(new PassportLocal(function(dni,matchPass,done){
+                if(dni && matchPass){
+                    return done(null, user)
+                }
+                done(null,false )
+            }))
 
 
 
@@ -19,6 +28,9 @@ const validations = [
             return Promise.reject('El DNI o la contraseña son invalidos')
         }),
     body('password').notEmpty().withMessage('Debes escribir tu contraseña')
+
+
+   
 ]
 
 
