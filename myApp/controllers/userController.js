@@ -3,6 +3,7 @@ const { validationResult } = require('express-validator')
 const { UserAccess } = require('../database/models')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
+const { locals } = require('../app')
 
 
 
@@ -46,33 +47,11 @@ const controller = {
 
     login: (req, res) => {
         res.render('users/login.ejs')
+        
     },
-    access: async (req, res, next) => {
-        const formValidation = validationResult(req)
-        const errors = formValidation.mapped()
-        const { dni } = req.body
-        console.log(passport.authenticate('local',(err,user,info)=>{
-            console.log(user)
-        }))
-        console.log('voy a entrar a autenticate')
-        passport.authenticate('local',(err,user,info)=>{
-            console.log('-----------------------')
-            console.log(info)
-            if(err){
-                next(err)
-            }
-            if(!user){
-                res.status(400).send("Email o contraseña invalidos")
-            }
-            req.logIn(user, (err)=>{
-                if(err){
-                    next(err)
-                }
-                res.redirect('/')
-            })
-
-        })
+    access: (req, res) => {
     }
+
 
 }
 

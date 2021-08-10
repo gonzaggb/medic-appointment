@@ -1,7 +1,19 @@
 const { User } = require('../database/models')
+let accesos = 0
+function getUserByDni(dni) {
+  console.log('ejecuto user by dni')
+  const user = User.findOne({
+    where: { dni }
+  })
 
-function  exist (evaluateField, dataToEvaluate){
-  return  User.findOne({where: {[evaluateField] : dataToEvaluate}})
+  return user
 }
 
-module.exports = { exist }
+function getUserById( id ){
+  accesos++
+  console.log(`ejecuto user by id ${accesos}`)
+  const user = User.findByPk(id)
+  return user
+}
+
+module.exports = { getUserByDni, getUserById }

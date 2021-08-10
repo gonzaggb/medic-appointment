@@ -2,14 +2,19 @@ var express = require('express');
 var router = express.Router();
 const userController = require('../controllers/userController')
 const validateNewUser = require('../middlewares/validateNewUser')
-const validateLoginAccess = require('../middlewares/validateLoginAccess')
 const passport = require('passport')
+const { checkNoAuth } = require('../middlewares/checkNoAuth')
+
 
 /* GET users listing. */
-router.get('/registro', userController.registry)
+router.get('/registro',checkNoAuth, userController.registry) //si el usuario está logueado no puede acceder a esta ruta
 router.post('/registro', validateNewUser, userController.create)
-router.get('/login', userController.login)
-router.post('/login', userController.access)
+router.get('/login', checkNoAuth, userController.login) //si el usuario está logueado no puede acceder a esta ruta
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/usuarios/login',
+    failureFlash: true
+}), userController.access)
 
 
 module.exports = router;
