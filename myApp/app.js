@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const flash = require('express-flash')
+// const flash = require('express-flash')
 const indexRouter = require('./routes/indexRouter');
 const usersRouter = require('./routes/usersRouter');
 //REQUIERO PASSPORT QUE ES EL MODULO QUE SE ENCARGA DE HACER LAS VALIDACIONES DE USUARIO
@@ -29,7 +29,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(flash())
+// app.use(flash())
 
 
 //HAY QUE VER COMO PASAR EL STRING A UN ARCHIVO CONFIG

@@ -1,0 +1,49 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.register-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px;
+  background: #296697c5;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.register-container form{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.register-container div {
+  width: 280px;
+  height: 80px;
+  padding: 5px;
+}
+
+.register-container .form-control {
+  width: 15rem;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.register-container .form-check-input {
+  justify-content: center;
+  align-items: center;
+}
+
+.register-container button {
+  width: 8rem;
+  height: 4rem;
+  border-radius: .5rem;
+}
